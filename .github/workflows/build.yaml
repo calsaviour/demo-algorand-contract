@@ -9,11 +9,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Install PyTeal with version
-        uses: calsaviour/demo-algorand-action/install-pyteal@main
-        with:
-          python-version: "3.10"
-          pyteal-version: "0.17.0"
+      # - name: Install PyTeal with version
+      #   uses: calsaviour/demo-algorand-action/install-pyteal@main
+      #   with:
+      #     python-version: "3.10"
+      #     pyteal-version: "0.17.0"
 
       - name: Install Latest PyTeal
         uses: calsaviour/demo-algorand-action/install-pyteal@main
