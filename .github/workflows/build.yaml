@@ -1,0 +1,36 @@
+---
+on: [push]
+
+jobs:
+  build_smart_contract:
+    runs-on: ubuntu-latest
+    name: Build Smart Contract
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install PyTeal with version
+        uses: calsaviour/demo-algorand-action/install-pyteal@main
+        with:
+          python-version: "3.10"
+          pyteal-version: "0.17.0"
+
+      - name: Install Latest PyTeal
+        uses: calsaviour/demo-algorand-action/install-pyteal@main
+        with:
+          python-version: "3.10"
+
+      - name: Compile PyTeal to Teal
+        run: |
+          python compile_contract.py
+
+      - name: Setup Algorand Blockchain
+        uses: calsaviour/demo-algorand-action/setup-algorand@main
+        with:
+          python-version: "3.10"
+
+      # - name: Build Algorand Contract
+      #   id: build-algorand-contract
+      #   uses: calsaviour/demo-algorand-github-action@master
+      #   with:
+      #     command: build
