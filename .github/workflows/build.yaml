@@ -27,6 +27,11 @@ jobs:
         run: |
           python ${{ env.smart_contract_folder }}/compile_contract.py
 
+      - name: Print Directory
+        working-directory: smart_contract
+        run: |
+          ls -ltr
+
       - name: Setup Algorand Blockchain
         uses: calsaviour/demo-algorand-action/setup-algorand@main
         with:
