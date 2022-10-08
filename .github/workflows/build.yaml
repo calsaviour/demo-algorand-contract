@@ -31,9 +31,9 @@ jobs:
         uses: calsaviour/demo-algorand-action/setup-algorand@main
         with:
           python-version: "3.10"
-          teal-directory: "."
-          approval-program-name: ${{ env.smart_contract_folder }}/marketplace_approval.teal
-          clear-program-name: ${{ env.smart_contract_folder }}/marketplace_clear.teal
+          teal-directory: "${{ env.smart_contract_folder }}"
+          approval-program-name: marketplace_approval.teal
+          clear-program-name: marketplace_clear.teal
           sandbox-note: tutorial-marketplace:uv1
 
       # - name: Build Algorand Contract
