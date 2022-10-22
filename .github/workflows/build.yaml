@@ -1,5 +1,6 @@
 ---
-on: [push]
+on:
+  push:
 
 env:
   smart_contract_folder: smart_contract
@@ -24,11 +25,12 @@ jobs:
           python-version: "3.10"
 
       - name: Compile PyTeal to Teal
+        working-directory: ${{ env.smart_contract_folder }}
         run: |
-          python ${{ env.smart_contract_folder }}/compile_contract.py
+          python compile_contract.py
 
       - name: Print Directory
-        working-directory: smart_contract
+        working-directory: ${{ env.smart_contract_folder }}
         run: |
           ls -ltr
 
